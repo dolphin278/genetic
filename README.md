@@ -168,32 +168,26 @@ Then you create instance of `Task` class:
     var Task = require('genetic').Task
       , taskInstance = new Task(options)
 
-Set up listener to event `run finished` event:
-
-    taskInstance.on('run finished', function (results) { console.log('run finished - ', results);
-
-`results` object will contain minimum and maximum solutions and some other values:
-
-    { minScore: 0.011558832842334069,
-      maxScore: 1.72994095208024,
-      min: 
-       { a: 0.034523882903158665,
-         b: 0.0032279810402542353,
-         c: 0.007138953311368823 },
-      max: 
-       { a: 0.8740309532731771,
-         b: 0.922393745277077,
-         c: 0.04361709952354431 },
-      avg: 0.1829793990352273,
-    }
-
-The same object is passed with event 'statistics' emitted on each new generation iteration - so you can monitor how you process goes.
-
 And invoke `run` method:
 
-    t.run()
+    t.run(function (stats) { console.log('results', stats)})
 
-When the run completes you'll get best/worst solution on the event 'run finished' (see earlier).
+When the run completes you'll get best/worst solution on the event 'run finished' (see earlier) or as argument to callback function passed to 'run' method.
+
+      { minScore: 0.011558832842334069,
+        maxScore: 1.72994095208024,
+        min: 
+         { a: 0.034523882903158665,
+           b: 0.0032279810402542353,
+           c: 0.007138953311368823 },
+        max: 
+         { a: 0.8740309532731771,
+           b: 0.922393745277077,
+           c: 0.04361709952354431 },
+        avg: 0.1829793990352273,
+      }
+
+The same object is passed with event 'statistics' emitted on each new generation iteration - so you can monitor how you process goes.
 
 ## Event model
 

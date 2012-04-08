@@ -63,8 +63,8 @@ function fitness(solution, callback) {
 console.log('=== TEST BEGINS === ')
 var
   t = new Task(options)
-t.on('run start', function () { console.log('run start'); util.log('run') })
-t.on('run finished', function (results) { console.log('run finished - ', results); util.log('run')})
+// t.on('run start', function () { console.log('run start'); util.log('run') })
+// t.on('run finished', function (results) { console.log('run finished - ', results); util.log('run')})
 // t.on('init start', function () { console.log('init start') })
 // t.on('init end', function (pop) { console.log('init end', pop) })
 // t.on('loop start', function () { console.log('loop start') })
@@ -95,6 +95,6 @@ t.on('run finished', function (results) { console.log('run finished - ', results
 // t.on('reproduction end', function (children) { console.log('reproduction end',children) })
 // 
 t.on('error', function (error) { console.log('ERROR - ', error) })
-t.run()
+t.run(function (stats) { console.log('results', stats)})
 
 
