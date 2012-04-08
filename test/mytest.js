@@ -1,6 +1,6 @@
 var Task = require('../lib').Task
   , options = { getRandomSolution : getRandomSolution
-              , popSize : 1000
+              , popSize : 500
               , stopCriteria : stopCriteria
               , fitness : fitness
               , minimize : false
@@ -53,7 +53,7 @@ function getRandomSolution(callback) {
 }
 
 function stopCriteria() {
-  return (this.generation == 4000)
+  return (this.generation == 1000)
 }
 
 function fitness(solution, callback) {
