@@ -8,6 +8,7 @@
     "type": "git",
     "url": "git://github.com/dolphin278/genetic.git"
   },
+  "bugs" : { "url" : "http://github.com/dolphin278/genetic/issues" },
   "main": "/lib",
   "engines": {
     "node": "~0.6.8"
