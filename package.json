@@ -2,7 +2,7 @@
   "author": "Boris Egorov aka dolphin278 <dolphin278@gmail.com> (http://dolphin278.net)",
   "name": "genetic",
   "description": "Implementation of genetic algorithms for nodejs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/dolphin278/genetic",
   "repository": {
     "type": "git",
