@@ -170,8 +170,7 @@ Then you create instance of `Task` class:
 
 Set up listener to event `run finished` event:
 
-    taskInstance.on('run finished', function (results) { console.log('run finished - 
-', results);
+    taskInstance.on('run finished', function (results) { console.log('run finished - ', results);
 
 `results` object will contain minimum and maximum solutions and some other values:
 
