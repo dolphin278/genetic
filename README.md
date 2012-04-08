@@ -191,4 +191,4 @@ The same object is passed with event 'statistics' emitted on each new generation
 
 ## Event model
 
-Genetic implements sofisticated event model so you can control how your optimization process works. I will fill this chapter later. Meanwhile you could examine shipped sample - look in 'test/mytest.js' file.
+Genetic implements sophisticated event model so you can control how your optimization process works. I will fill this chapter later. Meanwhile you could examine shipped sample - look in 'test/mytest.js' file.
