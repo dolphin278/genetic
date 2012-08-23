@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/dolphin278/genetic.png)](http://travis-ci.org/dolphin278/genetic)
 # Genetic
 
 Genetic is a [node.js](http://nodejs.org) implementation of genetic optimization algorithms. It's pretty asyncronous, so you can use it in your web applications without risking of blocking your application.
