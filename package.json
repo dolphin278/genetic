@@ -9,9 +9,9 @@
     "url": "git://github.com/dolphin278/genetic.git"
   },
   "bugs" : { "url" : "http://github.com/dolphin278/genetic/issues" },
-  "main": "/lib",
+  "main": "./lib",
   "engines": {
-    "node": "~0.6.8"
+    "node": "^0.6.8"
   },
   "dependencies": {
     "async" : "~0.1.x"
