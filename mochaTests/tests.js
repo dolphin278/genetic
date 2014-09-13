@@ -7,7 +7,7 @@ var assert = require("assert");
 var Task = require("../lib").Task;
 
 describe("Test run", function () {
-    describe("Main scnarion", function () {
+    describe("Main scenario", function () {
         var task = new Task({});
         var result, emitedResults;
         var testdata = "testdata";
