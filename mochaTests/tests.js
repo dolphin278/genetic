@@ -13,7 +13,7 @@ describe("Test run", function () {
         var testdata = "testdata";
 
         before(function (done) {
-            task.statistics = testdata;
+            task.globalStatistics = testdata;
             task.init = sinon.stub();
             task.init.yields();
             task.loop = sinon.stub();

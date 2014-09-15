@@ -173,12 +173,12 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should find min", function() {
-            assert.equal(res.min.x, 2);
+            assert.equal(res.min.x, 1);
         });
 
         it("Should find minScore", function() {
             console.log(res);
-            assert.equal(res.minScore, 12);
+            assert.equal(res.minScore, 11);
         });
     });
 
