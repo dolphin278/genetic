@@ -65,7 +65,7 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should call stopCriteria first time on object with right statistics.maxScore", function(){
-            assert.equal(opts.stopCriteria.firstCall.thisValue.statistics.maxScore, 10);
+            assert.equal(opts.stopCriteria.firstCall.thisValue.statistics.maxScore, 11);
         });
 
         it("Should call stopCriteria first time on object with right statistics.min", function(){
@@ -73,7 +73,7 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should call stopCriteria first time on object with right statistics.minScore", function(){
-            assert.equal(opts.stopCriteria.firstCall.thisValue.statistics.minScore, 10);
+            assert.equal(opts.stopCriteria.firstCall.thisValue.statistics.minScore, 11);
         });
 
         it("Should find max", function() {
@@ -81,7 +81,7 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should find maxScore", function() {
-            assert.equal(res.maxScore, 10);
+            assert.equal(res.maxScore, 11);
         });
 
         it("Should find min", function() {
@@ -89,7 +89,7 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should find minScore", function() {
-            assert.equal(res.minScore, 10);
+            assert.equal(res.minScore, 11);
         });
     });
 
@@ -110,7 +110,8 @@ describe("Test stopCriteria call order", function () {
         };
         opts.getRandomSolution.yields({x: 1});
         opts.mutate.yields({x: 0});
-        opts.fitness.yields(++i);
+        opts.fitness.onFirstCall().yields(++i);
+        opts.fitness.onSecondCall().yields(++i);
         opts.crossover.yields({x: 2});
         opts.stopCriteria.onFirstCall().returns(false);
         opts.stopCriteria.onSecondCall().returns(true);
@@ -156,11 +157,11 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should call stopCriteria second time on object with right statistics.min", function(){
-            assert.equal(opts.stopCriteria.secondCall.thisValue.statistics.min.x, 1);
+            assert.equal(opts.stopCriteria.secondCall.thisValue.statistics.min.x, 2);
         });
 
         it("Should call stopCriteria second time on object with right statistics.minScore", function(){
-            assert.equal(opts.stopCriteria.secondCall.thisValue.statistics.minScore, 11);
+            assert.equal(opts.stopCriteria.secondCall.thisValue.statistics.minScore, 12);
         });
 
         it("Should find max", function() {
@@ -172,11 +173,12 @@ describe("Test stopCriteria call order", function () {
         });
 
         it("Should find min", function() {
-            assert.equal(res.min.x, 1);
+            assert.equal(res.min.x, 2);
         });
 
         it("Should find minScore", function() {
-            assert.equal(res.minScore, 11);
+            console.log(res);
+            assert.equal(res.minScore, 12);
         });
     });
 

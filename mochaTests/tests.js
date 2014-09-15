@@ -18,6 +18,10 @@ describe("Test run", function () {
             task.init.yields();
             task.loop = sinon.stub();
             task.loop.yields();
+            task.calcFitness = sinon.stub();
+            task.calcFitness.yields();
+            task.calcStatistics = sinon.stub();
+            task.calcStatistics.yields();
             task.on("run finished", function(res) {
                 emitedResults = res;
             });
@@ -33,8 +37,14 @@ describe("Test run", function () {
         it("Should call loop once", function (){
             assert(task.loop.calledOnce);
         });
-        it("Should call loop called after init", function (){
-            assert(task.loop.calledAfter(task.init));
+        it("Should call calcFitness after init", function () {
+            assert(task.calcFitness.calledAfter(task.init));
+        });
+        it("Should call calcStatistics after calcFitness", function () {
+            assert(task.calcStatistics.calledAfter(task.calcFitness));
+        });
+        it("Should call loop called after calcStatistics", function (){
+            assert(task.loop.calledAfter(task.calcStatistics));
         });
         it("Should call cb with result", function () {
             assert.equal(result, testdata);
