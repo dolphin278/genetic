@@ -1,7 +1,3 @@
-/**
- * Created by DarkRider on 07.09.2014.
- */
-
 var sinon = require("sinon");
 var assert = require("assert");
 var Task = require("../lib").Task;
