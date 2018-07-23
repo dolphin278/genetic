@@ -16,7 +16,7 @@ For this example we will optimize parameters of function
 
     f(a,b,c) = a^2+b+c
 
-which is pretty straightforward. We will try to find best values to maximize value of entire function - which, as you could easily see are a = 1, b = 1 and c = 1 with optimal function value equals to 3 (we assume that a, b and c belongs to interval [0,1)).
+which is pretty straightforward. Assuming a, b and c belong to the interval [0,1), we will try to find best values to maximize value of entire function - which, as you could easily see are a = 1, b = 1 and c = 1 with optimal function value equal to 3.
 
 A possible set of (a,b,c) values we will call a 'solution'. 
 
