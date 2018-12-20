@@ -1,68 +1,47 @@
-var Task = require('../lib').Task
-  , options = { getRandomSolution : getRandomSolution
-              , popSize : 500
-              , stopCriteria : stopCriteria
-              , fitness : fitness
-              , minimize : false
-              , mutateProbability : 0.1
-              , mutate : mutate
-              , crossoverProbability : 0.3
-              , crossover : crossover
-              }
-  , util = require('util')
+var Task = require('../lib').Task;
+var options = {
+    getRandomSolution : getRandomSolution,
+    popSize : 500,
+    stopCriteria : stopCriteria,
+    fitness : fitness,
+    minimize : false,
+    mutateProbability : 0.1,
+    mutate : mutate,
+    crossoverProbability : 0.3,
+    crossover : crossover
+};
 
 function crossover(parent1, parent2, callback) {
-  var child = {}
-  if (Math.random()>0.5) {
-    child.a = parent1.a    
-  }
-  else {
-    child.a = parent2.a
-  }
-  if (Math.random()>0.5) {
-    child.b = parent1.b
-  }
-  else {
-    child.b = parent2.b
-  }
-  if (Math.random()>0.5) {
-    child.c = parent1.c
-  }
-  else {
-    child.c = parent2.c
-  }
-  callback(child)
+    callback({
+        a: Math.random()>0.5 ? parent1.a : parent2.a,
+        b: Math.random()>0.5 ? parent1.b : parent2.b,
+        c: Math.random()>0.5 ? parent1.c : parent2.c
+    });
 }
 
 function mutate(solution, callback) {
-  if (Math.random()<0.3) {
-    solution.a = Math.random()
-  }
-  if (Math.random()<0.3) {
-    solution.b = Math.random()
-  }
-  if (Math.random()<0.3) {
-    solution.c = Math.random()
-  }
-  callback(solution)
+    if (Math.random()<0.3) { solution.a = Math.random(); }
+    if (Math.random()<0.3) { solution.b = Math.random(); }
+    if (Math.random()<0.3) { solution.c = Math.random(); }
+    callback(solution);
 }
 
 function getRandomSolution(callback) {
-  var solution = { a: Math.random(), b: Math.random(), c: Math.random() }
-  callback(solution)
+    var solution = { a: Math.random(), b: Math.random(), c: Math.random() };
+    callback(solution);
 }
 
 function stopCriteria() {
-  return (this.generation == 1000)
+    return this.generation == 1000;
 }
 
 function fitness(solution, callback) {
-  callback(Math.pow(solution.a,2)+solution.b+solution.c)
+    callback(Math.pow(solution.a, 2) + solution.b + solution.c);
 }
 
-console.log('=== TEST BEGINS === ')
+console.log('=== TEST BEGINS === ');
 var
-  t = new Task(options)
+    t = new Task(options);
 // t.on('run start', function () { console.log('run start'); util.log('run') })
 // t.on('run finished', function (results) { console.log('run finished - ', results); util.log('run')})
 // t.on('init start', function () { console.log('init start') })
@@ -94,7 +73,7 @@ var
 // 
 // t.on('reproduction end', function (children) { console.log('reproduction end',children) })
 // 
-t.on('error', function (error) { console.log('ERROR - ', error) })
-t.run(function (stats) { console.log('results', stats)})
+t.on('error', function (error) { console.log('ERROR - ', error) });
+t.run(function (stats) { console.log('results', stats)});
 
 
